@@ -4,7 +4,7 @@ let li = document.getElementsByClassName('meses')
 let titulo = document.getElementById('titulo')
 // titulo.style.display = 'none'
 
-
+    
 
 let dados = [
     {link:"https://docs.google.com/spreadsheets/d/1Sy8S48wuo8CCejl6Ant5-KRbbY14TLUnvLKKMoKaYDw/edit?gid=1560869295#gid=1560869295",indice:1,class:"meses",nome:'Janeiro25'},
@@ -38,7 +38,7 @@ let dados = [
             let li = document.createElement('li')
             let a = document.createElement('a')
             a.setAttribute('target','_blank')
-            a.setAttribute("href", item.link)
+            li.setAttribute("href", item.link)
             li.setAttribute('class', 'meses')
             li.setAttribute('value',item.indice)
             a.innerText = item.nome
@@ -50,6 +50,31 @@ let dados = [
         function ocultar(){
             
         }
+        
+        dados.forEach((mes)=>{
+           fechamentoMensal(mes)
+
+        })
+
+        function fechamentoMensal(mes){
+            let abaMeses = document.getElementById('abameses');
+            let li = document.createElement('li')
+
+            let a = document.createElement('a')
+            a.setAttribute("href", mes.link)
+            a.setAttribute('target','blank')
+            a.setAttribute('class','meses')
+            a.innerText = mes.nome
+
+            a.appendChild(li)
+            abaMeses.appendChild(a)
+
+
+        }
+
+
+
+
 
         // titulo.addEventListener('click',(){})
         // destaque.classList.add("destaqueon")
